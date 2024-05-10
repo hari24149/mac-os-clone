@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login and Signup</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #f0f0f0;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .border {
+            background-color: white;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .border h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .user-details {
+            margin-bottom: 20px;
+        }
+
+        .user-details div {
+            margin-bottom: 10px;
+        }
+
+        button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #007bff;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        #all-data {
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 10px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <!-- ****************************************************************AdminPage *********************************************************** -->
+    <div class="border" id="adminSection">
+        <h1><b>Admin Panel</b></h1>
+        <h2>User Details</h2>
+        <div id="userDetails" class="user-details">
+            <!-- User details will be dynamically populated here -->
+        </div>
+        <h2>Actions</h2>
+        <button onclick="createUser()">Create User</button>
+        <button onclick="updateUser()">Update User</button>
+        <button onclick="deleteUser()">Delete User</button>
+    </div>
+
+    <!-- All data section -->
+    <div class="border" id="all-data">
+        <h2>All Data</h2>
+        <pre id="allDataContent"></pre>
+        <button onclick="clearLocalStorage()">Clear Local Storage</button> <!-- Button to clear local storage -->
+    </div>
+</div>
+
+<script>
+    // Initialize file system
+    let fileSystem = {};
+
+    // Function to initialize file system
+    function initFileSystem() {
+        let storedFileSystem = localStorage.getItem('fileSystem');
+        if (storedFileSystem) {
+            fileSystem = JSON.parse(storedFileSystem);
+        } else {
+            fileSystem = {};
+        }
+    }
+    initFileSystem(); // Initialize file system on page load
+
+    // Function to populate user details in Admin Panel
+    function populateUserDetails() {
+        const userDetailsDiv = document.getElementById("userDetails");
+        userDetailsDiv.innerHTML = ""; // Clear previous data
+
+        // Iterate through fileSystem to display user details
+        for (let username in fileSystem) {
+            const user = fileSystem[username];
+            const userDiv = document.createElement("div");
+            userDiv.innerHTML = `<strong>${username}</strong> - ${user.password}`;
+            userDetailsDiv.appendChild(userDiv);
+        }
+    }
+
+    // Function to create a new user
+    function createUser() {
+        const username = prompt("Enter username:");
+        const password = prompt("Enter password:");
+
+        if (username && password) {
+            if (!fileSystem[username]) {
+                fileSystem[username] = { password: password };
+                localStorage.setItem('fileSystem', JSON.stringify(fileSystem));
+                alert("User created successfully!");
+                populateUserDetails();
+                displayAllData(); // Update all data display
+            } else {
+                alert("Username already exists!");
+            }
+        }
+    }
+
+    // Function to update an existing user
+    function updateUser() {
+        const username = prompt("Enter username to update:");
+        if (fileSystem[username]) {
+            const newPassword = prompt("Enter new password:");
+            fileSystem[username].password = newPassword;
+            localStorage.setItem('fileSystem', JSON.stringify(fileSystem));
+            alert("User updated successfully!");
+            populateUserDetails();
+            displayAllData(); // Update all data display
+        } else {
+            alert("User not found!");
+        }
+    }
+
+    // Function to delete an existing user
+    function deleteUser() {
+        const username = prompt("Enter username to delete:");
+        if (fileSystem[username]) {
+            delete fileSystem[username];
+            localStorage.setItem('fileSystem', JSON.stringify(fileSystem));
+            // Delete profile image from local storage
+            localStorage.removeItem('profileImage_' + username);
+            alert("User deleted successfully!");
+            populateUserDetails();
+            displayAllData(); // Update all data display
+        } else {
+            alert("User not found!");
+        }
+    }
+
+    // Function to display all data stored in local storage
+    function displayAllData() {
+        const allDataContent = document.getElementById("allDataContent");
+        allDataContent.textContent = JSON.stringify(fileSystem, null, 2); // Pretty print JSON
+    }
+
+    // Function to clear the entire local storage
+    function clearLocalStorage() {
+        localStorage.clear();
+        fileSystem = {}; // Clear the file system object
+        populateUserDetails(); // Update user details display
+        displayAllData(); // Update all data display
+    }
+
+    // Populate user details initially
+    populateUserDetails();
+    displayAllData(); // Display all data on page load
+</script>
+</body>
+</html>

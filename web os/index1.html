@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>testos</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet"href="https://fonts.googleapis.com/css?family=Roboto:300,400,500|Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" />
+
+</head>
+<body>
+    <header >
+        <div class="lef" > 
+            <img src="aserts/white.png" alt="Apple logo" id="jam" />
+           
+            <a href="#" id="fal"><label>File</label></a>
+            <a href="#" ><label>Edit</label></a>
+            <a href="#"><label>View</label></a>
+            <a href="#"><label>Go</label></a>
+            <a href="#"><label>Tools</label></a>
+            <a href="#"><label>Help</label></a>
+        </div>
+
+        <div class="rig">
+          <div class="tbatery">
+            <span style="font-size: 11px;" id="batteryPercentage">Loading...</span>
+
+            <div class="battery">
+              <div class="fbatery" id="fillBattery"></div>
+              <div class="tip"></div> 
+            </div>
+            
+          </div>
+          
+            <!-- wifi icon -->
+            <svg width="24" height="24">
+                <path
+                  d="M12 6c3.537 0 6.837 1.353 9.293 3.809l1.414-1.414C19.874 5.561 16.071 4 12 4 7.929 4.001 4.126 5.561 1.293 8.395l1.414 1.414C5.163 7.353 8.463 6 12 6zM17.671 14.307c-3.074-3.074-8.268-3.074-11.342 0l1.414 1.414c2.307-2.307 6.207-2.307 8.514 0L17.671 14.307z"
+                ></path>
+                <path
+                  d="M20.437,11.293c-4.572-4.574-12.301-4.574-16.873,0l1.414,1.414c3.807-3.807,10.238-3.807,14.045,0L20.437,11.293z"
+                ></path>
+                <circle cx="12" cy="18" r="2"></circle>
+              </svg>
+              <!-- searchicon -->
+              <svg onclick="toggleInput()" width="20" height="20">
+                <path
+                  d="M10,18c1.846,0,3.543-0.635,4.897-1.688l4.396,4.396l1.414-1.414l-4.396-4.396C17.365,13.543,18,11.846,18,10 c0-4.411-3.589-8-8-8s-8,3.589-8,8S5.589,18,10,18z M10,4c3.309,0,6,2.691,6,6s-2.691,6-6,6s-6-2.691-6-6S6.691,4,10,4z"
+                ></path>
+              </svg>
+              <img src="icons/control_center.gif"  id="con" alt="controlCenter" style="width: 28px; height: 15px;"/>
+            <span id="date"></span>
+            <span id="time"></span>
+        </div>
+    </header>
+
+
+    <div class="fileh" id="fileh">
+        <div class="tp">
+        <button id="createFileBtn2">New File</button>
+        <button> New Window</button>
+        </div>
+        <hr></hr>
+        <div class="tp">
+        <button onclick="noteapp()"> Open File</button>
+        <button onclick="noteapp1()"> Open Recent File</button>
+        </div>
+        <hr></hr>
+        <div class="tp">
+        <button onclick="saveTextToFile()"> Save</button>
+        <button onclick="window.print();">Print</button>
+        </div>
+        <hr></hr>
+        <div class="tp">
+        <button> Searching</button>
+        <button> Propertie File</button>
+        </div>
+        <hr></hr>
+        <div class="tp"><button> Customize</button></div>
+        <hr></hr>
+        <div class="tp"><button>Exit</button></div>
+    </div>
+    
+
+
+
+
+    <div class="fileg" id="fileg">
+      <div class="tp">
+      <button>About This Mac</button>
+      </div>
+      <hr></hr>
+      <div class="tp">
+      <button onclick="alert('System is working fine')">System Preference</button>
+      </div>
+      <hr></hr>
+      <div class="tp">
+      <button>Recent Items</button>
+      </div>
+      <hr></hr>
+      <div class="tp"><button onclick="closefil()"> Force Quit Finder</button></div>
+      <hr></hr>
+      <div class="tp">
+      <button onclick="sleepConfirmation()">Sleep</button>
+      <button onclick="window.location.href = 'index1.html'"> Restart...</button>
+      <button onclick="window.location.href='admin.html'">Admin Page </button>
+      </div>
+      <hr></hr>
+      <div class="tp">
+        <button onclick="window.location.href = 'index.html#sal'">Lock Screen</button>
+        <button onclick="window.location.href = 'index.html#showSignup'">Log out</button> 
+      </div>
+  </div>
+
+  <div class="controler" id="controler">
+    <div class="itemsub">
+    <div class="item1">
+      <label for=""> <svg width="24" height="24">
+        <path d="M12 6c3.537 0 6.837 1.353 9.293 3.809l1.414-1.414C19.874 5.561 16.071 4 12 4 7.929 4.001 4.126 5.561 1.293 8.395l1.414 1.414C5.163 7.353 8.463 6 12 6zM17.671 14.307c-3.074-3.074-8.268-3.074-11.342 0l1.414 1.414c2.307-2.307 6.207-2.307 8.514 0L17.671 14.307z"></path>
+        <path d="M20.437,11.293c-4.572-4.574-12.301-4.574-16.873,0l1.414,1.414c3.807-3.807,10.238-3.807,14.045,0L20.437,11.293z"></path>
+        <circle cx="12" cy="18" r="2"></circle>
+      </svg>Wi-Fi</label>
+      <label for="">  <svg height="24px" width="24px" viewBox="0 0 100 100">
+        <path d="M62.6 68.501c-1.582 1.637-4.2 1.637-5.782.055-1.636-1.582-1.691-4.146-.109-5.783 1.8-1.8 2.836-4.146 2.836-6.765 0-5.292-4.255-9.547-9.545-9.547s-9.545 4.255-9.545 9.547c0 2.619 1.036 4.965 2.836 6.765 1.582 1.637 1.527 4.255-.109 5.837-1.582 1.528-4.2 1.528-5.782-.109-3.109-3.164-5.127-7.638-5.127-12.493 0-9.82 7.964-17.73 17.727-17.73s17.727 7.91 17.727 17.73c0 4.855-2.018 9.329-5.127 12.493z"></path>
+        <path d="M50 24.639c17.291 0 31.364 14.021 31.364 31.369 0 8.62-3.491 16.585-9.273 22.149-1.582 1.582-4.2 1.582-5.782-.055-1.582-1.582-1.527-4.201.109-5.783 4.145-4.092 6.764-9.929 6.764-16.312 0-6.437-2.618-12.166-6.818-16.421-4.2-4.201-9.982-6.765-16.364-6.765-6.436 0-12.164 2.564-16.364 6.765-4.255 4.255-6.818 9.984-6.818 16.421 0 6.383 2.618 12.22 6.764 16.312 1.636 1.582 1.691 4.201.109 5.783-1.582 1.637-4.2 1.637-5.782.055-5.782-5.565-9.273-13.53-9.273-22.149 0-17.349 14.073-31.369 31.364-31.369z"></path>
+        <path d="M86.818 56.008c0-10.202-4.091-19.367-10.8-26.023C69.364 23.275 60.145 19.183 50 19.183c-10.2 0-19.364 4.092-26.018 10.802-6.709 6.656-10.8 15.821-10.8 26.023 0 10.147 4.145 19.367 10.8 26.023 1.582 1.582 1.582 4.146 0 5.783-1.582 1.582-4.2 1.582-5.782 0C10.018 79.739 5 68.392 5 56.008 5 31.131 25.182 11 50 11s45 20.131 45 45.008c0 12.384-5.018 23.731-13.2 31.806-1.636 1.582-4.2 1.582-5.782 0-1.582-1.637-1.582-4.201 0-5.783 6.655-6.656 10.8-15.876 10.8-26.023z"></path>
+      </svg>AirDrop</label>
+      <label for=""><svg height="24" width="24" viewBox="0 0 100 100">
+        <path d="M48.7 97.5c-.7 0-1.3-.1-1.9-.4-1.7-.8-2.8-2.5-2.8-4.3V60.7L30.1 73.1c-1.1 1-2.8.9-3.8-.2l-2.8-3.1c-1-1.1-.9-2.8.2-3.8l17.8-16-17.8-16c-1.1-1-1.2-2.7-.2-3.8l2.8-3.1c1-1.1 2.7-1.2 3.8-.2l13.8 12.4v-32c0-1.9 1.1-3.6 2.8-4.3 1.7-.8 3.7-.4 5.1.8l23.7 21.4c1 .9 1.6 2.2 1.6 3.5 0 1.3-.6 2.6-1.6 3.5L55.8 50l19.8 17.8c1 .9 1.6 2.2 1.6 3.5s-.6 2.6-1.6 3.5L51.8 96.3c-.9.8-2 1.2-3.1 1.2zm4.7-36.8v21.4l11.9-10.7-11.9-10.7zm0-42.8v21.4l11.9-10.7-11.9-10.7z"></path>
+      </svg> Bluetooth</label>
+    </div>
+    <div  class="item2">
+      <lable for="" ><svg height="24px" width="24px" version="1.1" viewBox="0 0 48 48">
+        <path d="M6.67,23.6c0,10.75,8.75,19.5,19.5,19.5c5.89,0,11.46-2.69,15.16-7.25c-1.06,0.17-2.12,0.25-3.16,0.25  c-11.3,0-20.5-9.2-20.5-20.5c0-3.81,1.04-7.48,3.03-10.71C12.5,7.3,6.67,14.97,6.67,23.6z"></path>
+      </svg>Do Not Disturb</lable>
+    </div>
+    </div></br>
+
+<!-- ***************slide*************** -->
+    <div class="inpa">
+    <div  class="item3">
+      <label class="slider">
+        <input type="range" class="level">
+        <img src="./aserts/sound.svg" alt="" srcset="" width="5%">
+    </label>
+    </div>
+
+    <div class="item4"><label class="slider">
+      <input type="range" class="level">
+      <img src="./aserts/brightness.svg" alt="" srcset="" width="6%">
+  </label></div>
+
+    <div class="item5">
+      <div style="display: flex; gap: 3px;">
+      <img src="icons/music.png" alt="" srcset="" width="23%">
+      <h1 style="color: white;">Music</h1>
+      </div>
+      <div style="display: flex; gap: 20px; padding-right: 20px;">
+        <img src="./aserts/play.svg" alt="" srcset="" width="39px">
+        <img src="./aserts/forward.svg" width="39px">
+
+      </div>
+    </div>
+    </div>
+
+    <!-- ***************************slide*********************** -->
+  </div>
+
+  <div class="ser"  id="toggleIcon">
+  <input type="text" autocomplete="off" name="text"  class="input" placeholder="Username">
+  </div>
+
+
+
+    <div id="contextMenu" class="context-menu">
+      <ul>
+          <!-- <li onclick="createNewFolder()">New Folder</button>
+          <li onclick="createfile()">New File</button> -->
+          <li><button onclick="changeWallpaper()">Change wallpaper</button></li>
+          <li><button>Copy</button></li>
+          <li><button>Paste</button></li>
+          <li><button id="createFolderBtn">Create Folder</button></li>
+          <li><button id="createFileBtn">Create File</button></li>
+          <li><button id="deleteSelected">Delete Selected</button></li>
+          <!-- <button><button onclick="checkboxi">Select</button></button> -->
+          <li><button id="selectAll">Select All</button></li>
+      </ul>
+  </div>
+  <div id="calapp" class="window"> 
+    <div class="hed">
+      <div style="gap: 7px; display: flex;">
+        <button class="btan1" onclick="closeca()">x</button>
+        <button class="btn2" onclick="closeca()">x</button>
+        <button class="btn3">x</button>
+      </div>
+    </div>
+    <div class="calculator">
+      <input type="text" id="display" disabled>
+      <div class="buttons">
+        <button onclick="appendToDisplay('7')">7</button>
+        <button onclick="appendToDisplay('8')">8</button>
+        <button onclick="appendToDisplay('9')">9</button>
+        <button onclick="appendToDisplay('+')">+</button>
+        <button onclick="appendToDisplay('4')">4</button>
+        <button onclick="appendToDisplay('5')">5</button>
+        <button onclick="appendToDisplay('6')">6</button>
+        <button onclick="appendToDisplay('-')">-</button>
+        <button onclick="appendToDisplay('1')">1</button>
+        <button onclick="appendToDisplay('2')">2</button>
+        <button onclick="appendToDisplay('3')">3</button>
+        <button onclick="appendToDisplay('*')">*</button>
+        <button onclick="appendToDisplay('0')">0</button>
+        <button onclick="appendToDisplay('(')">(</button>
+        <button onclick="appendToDisplay(')')">)</button> 
+        <button onclick="appendToDisplay('/')">/</button>
+        <button onclick="appendToDisplay('.')">.</button>
+        <button onclick="clearDisplay()">C</button>
+        <button onclick="backspace()">Backspace</button>
+        <button onclick="calculate()">=</button>
+      </div>
+    </div>
+  </div>
+  
+  
+  
+  
+
+    <div id="noteapp" class="window">
+    <div class="hed">
+      <div style="gap: 7px; display: flex;">
+        <button class="btan1" onclick="closeno()">x</button>
+        <button class="btn2" onclick="closeno()">x</button>
+        <button class="btn3">x</button>
+        </div>
+        <div><button class="down" onclick="saveTextToFile()"><i class="fa-solid fa-file-download"></i></button>
+        </div>
+    </div>
+    <textarea class="notepad-textarea" placeholder="Start typing your notes here..."></textarea>
+    <div class="touch1">hai</div>
+  </div>
+
+  <div id="noteapp1" class="window">
+    <div class="hed">
+      <div style="gap: 7px; display: flex;">
+        <button class="btan1" onclick="closeno1()">x</button>
+        <button class="btn2" onclick="closeno1()">x</button>
+        <button class="btn3">x</button>
+        </div>
+        <div><button class="down" onclick="saveTextToFile()"><i class="fa-solid fa-file-download"></i></button>
+        </div>
+    </div>
+    <textarea class="notepad-textarea" placeholder="Start typing your notes here..."></textarea>
+  </div>
+  <div id="settings" class="window">
+          <div class="hed">
+            <div style="gap: 7px; display: flex;">
+            <button class="btan1" onclick="closeset()">x</button>
+            <button class="btn2" onclick="closeset()">x</button>
+            <button class="btn3">x</button>
+            </div>
+          </div> 
+          <div>
+            <p>settings</p>
+          </div>
+   </div>
+
+  <div id="finder" class="window">
+    <div class="hed">
+        <div style="gap: 7px; display: flex;">
+            <button class="btan1" onclick="closefil()">x</button>
+            <button class="btn2" onclick="closefil()">x</button>
+            <button class="btn3">x</button>
+        </div>
+    </div> 
+    <div class="filecontent" oncontextmenu="showContextMenu(event)">
+        <div class="leftfile">
+          <p>Favorites</p>
+          <ul>
+            <li onclick=""><i class="fa-solid fa-desktop"></i> Desktop</button>
+            <li onclick=""> <i class="fa-solid fa-file"></i> Documents</button>
+            <li onclick=""><i class="fa-regular fa-circle-down"></i> Downloadsc</button>
+            <li onclick=""><i class="fa-solid fa-music"></i> Music</button>
+            <li onclick=""><i class="fa-solid fa-video"></i> Videos</button>
+        </ul>
+        <p>iCloud</p>
+        <p>Locations</p>
+        <ul>
+        <button><i class="fa-solid fa-laptop"></i> username</button>
+      </ul>
+        <p>Tags</p>
+        </div>
+        <div class="rightfile">
+            <a href="#" onclick="noteapp1()"  class="bod"><img src="icons/file.png" alt=""  ></a>
+            <a href="#" onclick="noteapp1()"  class="bod"><img src="icons/folder.png" alt="" srcset=""></a>
+          <div id="folders" class="folders"></div>
+        </div>
+    </div>
+</div>
+
+
+<div id="chrome" class="window">
+  <div class="hed">
+    <div style="gap: 7px; display: flex;">
+    <button class="btan1" onclick="closechr()">x</button>
+    <button class="btn2" onclick="closechr()">x</button>
+    <button class="btn3">x</button>
+    </div>
+  </div> 
+  <div id="browser" class="browser">
+    <div class="browser-hed">
+      <input type="text" id="url-input" placeholder="Enter URL or Search Term">
+      <button onclick="loadContent()"><i class="fa-solid fa-magnifying-glass"></i></button>
+      </div>
+    <iframe id="browser-frame" src=""></iframe>
+  </div>
+</div>
+
+<div id="vlc" class="window">
+  <div class="hed">
+    <div style="gap: 7px; display: flex;">
+      <button class="btan1" onclick="closevlc()">x</button>
+      <button class="btn2" onclick="closevlc()">x</button>
+      <button class="btn3">x</button>
+    </div>
+  </div> 
+  <div class="vlc">
+    <input type="file" id="fileInput" accept="video/mp4,video/x-matroska,video/*">
+    <button id="playButton">Play</button>
+    <button id="fullscreenButton">Full Screen</button>
+    <select id="audioLangSelect"></select>
+  </div>
+  <div class="vdi"><video id="videoPlayer" controls style="display: none;"></video></div>
+</div>
+
+
+<div id="maps" class="window">
+  <div class="hed">
+    <div style="gap: 7px; display: flex;">
+    <button class="btan1" onclick="closemap()">x</button>
+    <button class="btn2" onclick="closemap()">x</button>
+    <button class="btn3">x</button>
+    </div>
+  </div> 
+  <div>
+    <p><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d28492.600538774324!2d82.17856821321708!3d26.789812019659873!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x399a07937e6d2823%3A0x5fc8f683b17f222b!2sAyodhya%2C%20Uttar%20Pradesh!5e0!3m2!1sen!2sin!4v1709980884386!5m2!1sen!2sin" width="1100" height="540" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></p>
+  </div>
+</div>
+
+
+
+    <footer>
+        <div class="fot">
+            <button class="name"href="#"><img src="icons/finder.png" alt="finder" onclick="finder()"></button>
+            <button class="name"href="#"><img src="icons/launchpad.png" alt="Finder"  onclick="shakeElement(this)"></button>
+            <button class="name" href="#" ><img src="icons/preferences.png" alt="Settings" onclick="shakeElement(this)" ></button>
+            <button class="name"href="#"><img src="icons/contacts.png" alt="Contacts"  onclick="shakeElement(this)"></button>
+            <button class="name"href="#"><img src="icons/notes.png" alt="Notepad" onclick="noteapp()" ></button>
+            <button class="name"href="#"><img src="icons/appstore.png" alt="App Store"  onclick="shakeElement(this)"></button>
+            <button class="name"href="#"><img src="icons/calculator.png" alt="calculator" onclick="calapp()"></button>
+            <button class="name"href="#"><img src="icons/calendar.png"alt="calender"  onclick="shakeElement(this)"></button>
+            <button class="name"href="#"><img src="icons/terminal.png" alt="terminal"  onclick="shakeElement(this)"></button>
+            <button class="name"href="#"><img src="icons/vscode.svg" alt="vscode"  onclick="shakeElement(this)"></button>
+            <button class="name"href="#"><img src="icons/photos.png" alt="Text Editor"  onclick="shakeElement(this)"></button>
+            <button class="name"href="#"><img src="icons/message.png" alt="Messages" onclick="shakeElement(this)"></button>
+            <button class="name"href="#"><img src="icons/maps.png" alt="Maps" onclick="map()"></button>
+            <button class="name"href="#"><img src="icons/mail.png" alt="Mail" onclick="shakeElement(this)"></button>
+            <button class="name"href="#"><img src="icons/bin.png" alt="bin" onclick="shakeElement(this)"></button>
+            <button class="name"href="#"><img src="icons/music.png" alt="Music"  onclick="shakeElement(this)"></button>
+            <button class="name"href="#"><img src="icons/reminders.png" alt="remander" onclick="shakeElement(this)"></button>
+            <button class="name"href="#"><img src="icons/edge.png" alt="vrowser" onclick="chrome()" ></button>
+            <button class="name"href="#"><img src="icons/VLC_icon (1).png" alt="vlc" onclick="vlc1()"></button>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>

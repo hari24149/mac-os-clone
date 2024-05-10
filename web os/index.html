@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login and Signup</title>
+    <script src="https://smtpjs.com/v3/smtp.js">
+    </script>
+    <style>
+        
+body
+{
+    background: url(aserts/img3.jpg) center/cover;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+.border
+{
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    padding: 4%;
+    padding-top: 2%;
+    padding-bottom: 2%;
+    border-radius: 3%;
+    border: 1px solid wheat;
+    box-shadow: 0 20px 50px black;
+    display: none;
+}
+label
+{
+    font-size: 20px;
+}
+a{
+    text-decoration: none;
+    color: black;
+    margin-bottom: 15px;
+    text-align: end;
+    font-size: 100%;
+}
+
+input
+{
+    outline: transparent;
+    border-top: transparent;
+    border-left: transparent;
+    border-right: transparent;
+    border-style: outset;
+    gap: 10%;
+    box-sizing: border-box;
+    font-size: 19px;
+    margin-bottom: 10px;
+    
+}
+h1  
+{
+    text-align: center;
+    margin-bottom: 40px;
+
+}
+p
+{
+    font-size: 90%;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+button
+{
+    width: 100%;
+    border-radius: 20px;
+    font-size: 90%;
+    margin-bottom: 10px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.social
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 50px;
+}
+.social img {
+    border-radius: 60%;
+    width: 30px;
+    height: 30px;
+}
+a:hover
+{
+    transform: scale(1.2);
+}
+.upload
+{
+  font-size: 15px;
+  padding-bottom: 15px;
+  outline: none;
+  border: none;
+}
+
+#image-preview {
+    overflow: hidden;
+}
+
+.profile {
+    display: flex;
+    border-radius: 50%;
+    border: 1px solid white;
+    align-items: center;
+    justify-content: center;
+    width: 160px;
+    height: 160px;
+    overflow: hidden;
+    background-size: cover; 
+    background-repeat: no-repeat;
+}
+.lockscreen
+{
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.lockscreen p{
+    font-size: 25px;
+}
+.lockscreen input
+{
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    border-radius: 50px;
+    border: none;
+    outline: none;
+    font-size: 15px;
+    width: 250px;
+}
+.lockscreen button
+{
+    width: 100px;
+    font-size: 15px;
+    /* color: white; */
+}
+.welcom
+{
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    /* background-color: #000;  */
+    align-items: center;
+    justify-content: center;
+}
+.welcom h1
+{
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    text-align: center;
+    color: #ddd;
+    font-size: 5em;
+    font-family: sans-serif;
+    letter-spacing: .3em;
+}
+.welcom h1 span
+{
+    opacity: 0;
+    display: inline-block;
+    animation: animate 1s linear forwards;
+    -webkit-animation: animate 1s linear forwards;
+}
+@keyframes animate
+{
+    0%
+    {
+        opacity: 0;  
+        transform: rotateY(90deg);
+        filter: blur(10px);
+}
+    100%
+{
+        opacity: 1;
+        transform: rotateY(0deg);
+        filter: blur(0px);
+
+}
+}
+.welcom h1 span:nth-child(1)
+{
+    animation-delay: 1s;
+}
+.welcom h1 span:nth-child(2)
+{
+    animation-delay: 1.5s;
+}
+.welcom h1 span:nth-child(3)
+{
+    animation-delay: 2s;
+}
+.welcom h1 span:nth-child(4)
+{
+    animation-delay: 2.5s;
+}
+.welcom h1 span:nth-child(5)
+{
+    animation-delay: 3S;
+}
+.welcom h1 span:nth-child(6)
+{
+    animation-delay: 3.5s;
+}
+.welcom h1 span:nth-child(7)
+{
+    animation-delay: 4s;
+}
+.welcom h1 span:nth-child(8)
+{
+    animation-delay: 4.5s;
+}
+.welcom h1 span:nth-child(9)
+{
+    animation-delay: 5s;
+}
+.welcom h1 span:nth-child(10)
+{
+    animation-delay: 5.5s;
+}
+
+.btb
+{
+    margin-top: 700px;
+    margin-left: 120rem;
+    display: flex;
+    font-size: 25px;
+    width: 100px;
+    opacity: 0;
+    display: inline-block;
+    animation: animate 1s linear forwards;
+    -webkit-animation: animate 1s linear forwards;
+}
+button:hover
+{
+    background-color: green;
+}
+
+.item-hints {
+  --purple: #720c8f;
+  cursor: pointer;
+  padding: 0;
+}
+.item-hints .hint {
+  position: relative;
+  justify-content: center;
+  align-items: center;
+}
+.item-hints .hint-dot {
+  z-index: 3;
+  border: 1px solid #ffe4e4;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  -webkit-transform: translate(-0%, -0%) scale(0.95);
+  transform: translate(-0%, -0%) scale(0.95);
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+.item-hints .hint-radius {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: -125px 0 0 -125px;
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transform: scale(0);
+  transform: scale(0);
+}
+.item-hints .hint[data-position="1"] .hint-content {
+  top: 85px;
+  left: 50%;
+  margin-left: 56px;
+}
+.item-hints .hint-content {
+  width: 300px;
+  position: absolute;
+  z-index: 5;
+  padding: 35px 0;
+  opacity: 0;
+  transition: opacity 0.7s ease, visibility 0.7s ease;
+  color: #fff;
+  visibility: hidden;
+  pointer-events: none;
+}
+.item-hints .hint:hover .hint-content {
+  position: absolute;
+  z-index: 5;
+  padding: 35px 0;
+  opacity: 1;
+  -webkit-transition: opacity 0.7s ease, visibility 0.7s ease;
+  transition: opacity 0.7s ease, visibility 0.7s ease;
+  color: black;
+  visibility: visible;
+  pointer-events: none;
+}
+    .item-hints .hint-content::before {
+  width: 0px;
+  bottom: 29px;
+  left: 0;
+  content: "";
+  background-color: black;
+  height: 1px;
+  position: absolute;
+  transition: width 0.4s;
+}
+.item-hints .hint:hover .hint-content::before {
+  width: 180px;
+  transition: width 0.4s;
+}
+.item-hints .hint-content::after {
+  -webkit-transform-origin: 0 50%;
+  transform-origin: 0 50%;
+  -webkit-transform: rotate(-225deg);
+  transform: rotate(-225deg);
+  bottom: 29px;
+  left: 0;
+  width: 80px;
+  content: "";
+  background-color: black;
+  height: 1px;
+  position: absolute;
+  opacity: 1;
+  -webkit-transition: opacity 0.5s ease;
+  transition: opacity 0.5s ease;
+  -webkit-transition-delay: 0s;
+  transition-delay: 0s;
+}
+.item-hints .hint:hover .hint-content::after {
+  opacity: 1;
+  visibility: visible;
+}
+.item-hints .hint[data-position="4"] .hint-content {
+  bottom: 85px;
+  left: 50%;
+  margin-left: 56px;
+}
+    </style>
+</head>
+<body>
+    <!-- ****************************************************************welcomepage*********************************************************** -->
+<div class="welcom" id="wel">
+        <h1>
+            <span>Welcome</span>
+            <span>To The</span>
+            <span>M</span>
+            <span>A</span>
+            <span>C</span>
+            <span>C</span>
+            <span>l</span>
+            <span>O</span>
+            <span>N</span>
+            <span>E</span>
+        </h1>
+    </div>
+
+
+    <!-- ****************************************************************loginpage*********************************************************** -->
+    
+    <div class="border" id="loginSection">
+        <h1><b>Login</b></h1>
+        <label>Username</label>
+        <input type="text" id="username" >
+        <label>Password</label>
+        <input type="password" id="password">
+        <span style="text-decoration: none;color: black;margin-bottom: 15px;text-align: end;font-size: 100%;"><a href="#">Forgot password?</a></span>
+        <button onclick="loga()">Login</button>
+        <p>Or sign up using</p>
+        <div class="social">
+            <a href="facebook.com"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Facebook_Logo_%282019%29.png/1024px-Facebook_Logo_%282019%29.png" alt="fb"></a>
+            <a href="#"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Instagram_logo_2022.svg/2048px-Instagram_logo_2022.svg.png" alt="fb"></a>
+            <a href="#"><img src="https://static.dezeen.com/uploads/2023/07/x-logo-twitter-elon-musk_dezeen_2364_col_0.jpg" alt="fb"></a>
+        </div>
+        <p>Or sign up using</p>
+        <a href="#" onclick="showSignup()" style="justify-content: center; display: flex; font-size: small;">SIGN UP</a>
+    </div>
+
+<!-- ****************************************************************signuppage *********************************************************** -->
+
+
+    <div class="border" id="signupSection" style="display: none;">
+        <h1><b>Signup</b></h1>
+        <label for="signupUsername">Username</label>
+        <input type="text" id="signupUsername"  placeholder="enter username to login">
+        <label for="signupPassword">Password</label>
+        <input type="password" id="signupPassword" placeholder="password" >
+        <label for="confirmPassword">Confirm Password</label>
+        <input type="password" id="confirmPassword" placeholder="confirmPassword" >
+        <label for="">Email</label>
+        <input type="email" name="" id="email1" placeholder="enter your maild" >
+        <label for="">OTP</label>
+        <input type="number" id="optin" placeholder="enter the otp"  >
+
+        <div class="item-hints">
+            <div class="hint" data-position="4">
+            <span style="text-decoration: none;color: black;margin-bottom: 15px;text-align: end;font-size: 100%;"><button onclick="Verifyotp()" id="send" >send</button></span>
+            <div class="hint-content do--split-children">
+                <p style="font-size: 18px; font-weight: bold;">Check span or notifications for otp</p>
+            </div>
+            </div>
+        </div>
+
+
+        <label for="profileImage">Profile Image:</label></br>
+        <input type="file" id="upload-input" name="profileImage" class="upload">
+        <button onclick="displayImage()">Upload Image</button>
+        <button onclick="verify()">SIGNUP</button>
+        <p>Or sign up using</p>
+        <div class="social">
+            <a href="facebook.com"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Facebook_Logo_%282019%29.png/1024px-Facebook_Logo_%282019%29.png" alt="fb"></a>
+            <a href="#"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Instagram_logo_2022.svg/2048px-Instagram_logo_2022.svg.png" alt="fb"></a>
+            <a href="#"><img src="https://static.dezeen.com/uploads/2023/07/x-logo-twitter-elon-musk_dezeen_2364_col_0.jpg" alt="fb"></a>
+        </div>
+        <a href="#" onclick="showLogin()" style="justify-content: center; display: flex; font-size: small;">LOGIN</a>
+    </div>
+
+
+<!-- ****************************************************************lockscreen*********************************************************** -->
+
+
+    <div class="lockscreen" id="lockscreen">
+        <div class="profile"><img id="image-preview" src="#" alt="Preview Image"></div>
+        <p id="user" style="color: white;">loading.....</p></br>
+        <input type="password" id="log"></br>
+        <button onclick="mac()" class="in">login</button>
+    </div>
+
+        
+
+    <script>
+    let fileSystem = {};
+
+        function initFileSystem() {
+            let storedFileSystem = localStorage.getItem('fileSystem');
+            if (storedFileSystem) {
+                fileSystem = JSON.parse(storedFileSystem);
+            } else {
+                fileSystem = {};
+            }
+        }
+        initFileSystem();
+        setTimeout(function() {
+            showLogin();
+            openFullscreen() }, 7000);
+        
+        function showSignup() {
+            document.getElementById("loginSection").style.display = "none";
+            document.getElementById("signupSection").style.display = "flex";
+            document.getElementById("lockscreen").style.display = "none";
+            document.getElementById("wel").style.display = "none";
+        }
+        
+        function showLogin() {
+            document.getElementById("signupSection").style.display = "none";
+            document.getElementById("loginSection").style.display = "flex";
+            document.getElementById("lockscreen").style.display = "none";
+            document.getElementById("wel").style.display = "none";
+        }
+        
+        function loc(username) {
+            document.getElementById("user").textContent = username;
+            document.getElementById("signupSection").style.display = "none";
+            document.getElementById("lockscreen").style.display = "flex";
+            document.getElementById("loginSection").style.display = "none";
+        }
+        function sal()
+        {
+           
+            function loc(username) {
+                document.getElementById("user").textContent = username; 
+                document.getElementById("signupSection").style.display = "none";
+                document.getElementById("lockscreen").style.display = "flex";
+                document.getElementById("loginSection").style.display = "none";
+            } 
+        }
+        
+        function loga() {
+            var user = document.getElementById("username").value;
+            var pas = document.getElementById("password").value;
+        
+            if (user == "admin" && pas == "admin") {
+                window.location.href = "admin.html";
+            } else {
+                if (fileSystem[user] && fileSystem[user].password === pas) {
+                    loc(user); // Pass the username to the loc() function
+                    displayUserProfileImage(user); // Display user profile image
+                } else {
+                    alert("Login failed. Invalid username or password.");
+                }
+            }
+        }
+        
+        function signup() {
+            var signupUsername = document.getElementById("signupUsername").value;
+            var signupPassword = document.getElementById("signupPassword").value;
+            var confirmPassword = document.getElementById("confirmPassword").value;
+        
+            if (signupPassword !== confirmPassword) {
+                alert("Passwords do not match!");
+                return;
+            }
+            if (fileSystem[signupUsername]) {
+                alert("Username already exists. Please choose another.");
+                return;
+            }
+            fileSystem[signupUsername] = {
+                password: signupPassword
+            };
+            localStorage.setItem('fileSystem', JSON.stringify(fileSystem));
+        
+            // Save user profile image
+            const input = document.getElementById("upload-input");
+            const file = input.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function (event) {
+                    const imageDataUrl = event.target.result;
+                    localStorage.setItem('profileImage_' + signupUsername, imageDataUrl);
+                };
+                reader.readAsDataURL(file);
+            }
+            showLogin();
+        }
+        
+        function displayImage() {
+            const input = document.getElementById("upload-input");
+            const file = input.files[0];
+        
+            if (file) {
+                const reader = new FileReader();
+        
+                reader.onload = function (event) {
+                    const imageDataUrl = event.target.result;
+                    updateImageSrc(imageDataUrl);
+                };
+        
+                reader.onerror = function (error) {
+                    console.error("Error reading the file:", error);
+                };
+        
+                reader.readAsDataURL(file);
+            }
+        }
+        
+        function updateImageSrc(imageDataUrl) {
+            const imagePreview = document.getElementById("image-preview");
+            imagePreview.src = imageDataUrl;
+        }
+        
+        // Function to display user profile image if available
+        function displayUserProfileImage(username) {
+            const storedImageDataUrl = localStorage.getItem('profileImage_' + username);
+            if (storedImageDataUrl) {
+                const userImage = document.getElementById('image-preview');
+                userImage.src = storedImageDataUrl;
+            }
+        }
+        
+        function mac() {
+            var user = document.getElementById("user").textContent;
+            var passwordEntered = document.getElementById("log").value;
+            if (fileSystem[user] && fileSystem[user].password === passwordEntered) {
+                loc(user);
+                displayUserProfileImage(user);
+                window.location.href = "index1.html";
+                
+            } else {
+                alert("Login failed. Invalid username or password.");
+            }
+        }
+        function requestNotificationPermission(message) {
+    Notification.requestPermission()
+        .then(permission => {
+            if (permission === 'granted') {
+                if (message.trim() !== '') {
+                    new Notification(message);
+                } else {
+                    alert('Please enter a notification message.');
+                }
+            } else {
+                alert('Notification permission denied.');
+            }
+        })
+        .catch(err => {
+            console.error('Error requesting notification permission:', err);
+        });
+}
+function Verifyotp() {
+    const email = document.getElementById('email1').value;
+    let otp = Math.floor(Math.random() * 10000);
+    let notificationMessage = "Your OTP is: " + otp;
+    requestNotificationPermission(notificationMessage);
+    document.getElementById("send").innerHTML = "resend";
+    console.log(otp);
+    let emailbody = '<h1>Your OTP: ' + otp + '</h1>';
+    Email.send({
+        SecureToken: "fffcb6fe-fd63-4ced-b65f-390d7cc886a1",
+        To: email,
+        From: "gocajej923@ricorit.com",
+        Subject: "Welcome to MacClone",
+        Body: emailbody,
+    }).then(
+        message => {
+            if (message === "OK") {
+                // showOTPPopup(otp);
+                alert("opt send sucesssfully");
+                // alert("wait for 1 min   ")
+                window.generatedOTP = otp;
+            } else {
+                alert("Failed to send OTP. Please try again later.");
+            }
+        }
+    ).catch(error => {
+        alert("An error occurred while sending OTP. Please try again later.");
+        console.error("Error sending OTP:", error);
+    });
+}
+
+function verify() {
+    const enteredOTP = document.getElementById('optin').value;
+    if (window.generatedOTP && enteredOTP === window.generatedOTP.toString()) {
+        alert("Signup successful");
+        signup();
+    } else {
+        alert("Incorrect OTP. Please try again.");
+    }
+}
+
+function showOTPPopup(otp) {
+    const otpPopup = document.createElement('div');
+    otpPopup.innerHTML = '<h2>Your OTP: ' + otp + '</h2>';
+    otpPopup.style.position = 'fixed';
+    otpPopup.style.top = '50%';
+    otpPopup.style.left = '50%';
+    otpPopup.style.transform = 'translate(-50%, -50%)';
+    otpPopup.style.background = '#ffffff';
+    otpPopup.style.color = '#000000';
+    otpPopup.style.padding = '20px';
+    otpPopup.style.border = '2px solid black';
+    otpPopup.style.borderRadius = '10px';
+    otpPopup.style.zIndex = '9999';
+    otpPopup.style.display = 'flex';
+    document.body.appendChild(otpPopup);
+    setTimeout(() => {
+        otpPopup.style.display = 'none';
+    }, 2000);
+}
+
+
+
+function openFullscreen() {
+  const element = document.documentElement;
+  if (element.requestFullscreen) {
+    element.requestFullscreen();
+  } else if (element.mozRequestFullScreen) {
+    element.mozRequestFullScreen();
+  } else if (element.webkitRequestFullscreen) {
+    element.webkitRequestFullscreen();
+  } else if (element.msRequestFullscreen) {
+    element.msRequestFullscreen();
+  }
+}
+document.addEventListener('DOMContentLoaded', function() {
+            openFullscreen();
+        });
+    </script>
+</body>
+</html>

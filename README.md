@@ -34,3 +34,7 @@ This project is created by [HARI THORAM] as a demonstration of front-end develop
 
 ![image](https://github.com/hari24149/mac-os-clone/assets/123857599/96d3e1f7-8a2c-4edc-8bc1-6a02627bfaa1)
 
+![image](https://github.com/hari24149/mac-os-clone/assets/123857599/14f84ab8-8fda-4d18-9ac8-b26ff2b57188)
+
+![image](https://github.com/hari24149/mac-os-clone/assets/123857599/f3b0b6b8-2b16-4f0e-b944-834c7e77c293)
+

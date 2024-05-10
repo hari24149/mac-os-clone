@@ -32,5 +32,5 @@ To access the admin page, simply add "admin.html" at the end of the URL in your 
 
 This project is created by [HARI THORAM] as a demonstration of front-end development skills and a tribute to the Mac OS user interface.
 
+![image](https://github.com/hari24149/mac-os-clone/assets/123857599/96d3e1f7-8a2c-4edc-8bc1-6a02627bfaa1)
 
-Thank you for visiting the Mac OS Clone website!
